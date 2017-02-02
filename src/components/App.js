@@ -7,6 +7,6 @@ export default function(props){
   return(
     <div>
       < NavBar header="Hey Ruby Doo"/>
-      { props.children  }
+      < GifApp />
     </div>)
 }

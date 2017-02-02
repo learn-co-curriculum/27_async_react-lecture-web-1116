@@ -11,7 +11,6 @@ export default class SearchForm extends Component {
     this.setState({
       query: e.target.value
     })
-    this.props.updateGif(this.state.query)
   }
 
   handleSubmit(event){

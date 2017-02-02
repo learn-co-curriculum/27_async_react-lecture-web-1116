@@ -8,15 +8,12 @@ export default class GifApp extends React.Component {
   constructor(){
     super()
     this.state = {
-      gif: {images: {fixed_height: {}}}
+      gif: 'No Search Yet'
     }
   }
 
   updateGif(query){
-    let term = query.split(' ').join('+')
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${term}&api_key=dc6zaTOxFJmzC`)
-      .then(res => res.json())
-      .then(gifs => this.setState({gif: gifs.data[0]}))
+    this.setState({gif: query})
   }
 
   render(){

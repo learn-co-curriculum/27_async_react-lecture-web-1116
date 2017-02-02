@@ -1,12 +1,12 @@
 import React from 'react'
 
 import NavBar from './NavBar'
-import GifApp from './GifApp'
+import GifPage from './GifPage'
 
 export default function(props){
   return(
     <div>
       < NavBar header="Hey Ruby Doo"/>
-      < GifApp />
+      < GifPage />
     </div>)
 }

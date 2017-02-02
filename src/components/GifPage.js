@@ -9,16 +9,20 @@ export default class GifPage extends React.Component {
   constructor(){
     super()
     this.state = {
-      gif: 'No Search Yet'
+      gif: null
     }
   }
 
   updateGif(query){
-    axios.get('http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC')
-      .then(function(response){
+    // What is this??
+    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query.split(" ").join("+")}&api_key=dc6zaTOxFJmzC`)
+      .then( response => {
         console.log(response)
+        let gifs = response.data.data
+        let index = Math.round( (Math.random() * gifs.length) )
+        let gifUrl = gifs[index].images.fixed_height.url
+        this.setState({gif: gifUrl})
       })
-    this.setState({gif: query})
   }
 
   render(){
